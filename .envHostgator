@@ -1,0 +1,17 @@
+APP_NAME=Henrique
+APP_ENV=local
+APP_KEY=base64:xp/8sMRtaHyJFNj9X+SfDR1vorwJhxIu1P/ICk+2hwI=
+APP_DEBUG=true
+APP_URL=https://henrique.rnvariedadesoficial.store/
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=rubaod11_laravel
+DB_USERNAME=rubaod11_admin
+DB_PASSWORD=suapresenca123
+
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
