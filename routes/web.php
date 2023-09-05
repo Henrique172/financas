@@ -24,6 +24,7 @@ use App\Mail\newLaravelTips;
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+Route::get('/boletosAtrasados', [HomeController::class, 'boletosAtrasados'])->middleware('auth');
 
 Route::prefix('painel')->group(function() {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
