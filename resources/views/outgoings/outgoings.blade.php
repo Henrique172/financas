@@ -81,6 +81,9 @@
                                 <div style="float: left;">
                                     <b>Despesa Total:</b><strong style="color: red">{{' R$ '.number_format($despesaTotal, 2, ',', '.')}}</strong>
                                 </div>
+                                <div style="float: left;">
+                                    <b>Não Paga:</b><strong style="color: rgb(151, 0, 156)">{{' R$ '.number_format($naoPago, 2, ',', '.')}}</strong>
+                                </div>
                                 <div style="float: center;">
                                     <b>TOTAL MENSAL:</b><strong style="color: {{ $totalMensal > 0 ? 'rgb(0, 151, 20)' : 'red' }}">{{' R$ '.number_format($totalMensal, 2, ',', '.')}}</strong>
                                     {{-- <b>TOTAL MENSAL:</b><strong style="color: rgb(7, 17, 155)">{{' R$ '.number_format($totalMensal, 2, ',', '.')}}</strong> --}}

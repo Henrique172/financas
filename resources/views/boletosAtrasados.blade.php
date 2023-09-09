@@ -64,12 +64,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php $i = 0;@endphp
                         @foreach ($boletoAtrasados as $b )
+                        @php $i ++;@endphp
                             <tr @if($b->paga === 1) class="btn-success"@endif>
-                                <td> - </td>
+                                <td>{{ $i  }}</td>
                                 <td>{{ $b->description }}</td>
                                 <td>{{ $b->value }}</td>
-                                <td>{{ $b->vencimento, 'd/m/Y' }}</td>
+                                <td>{{ app('App\Http\Controllers\HomeController')->trataData($b->vencimento)}}</td>
                                 <td>{{ app('App\Http\Controllers\HomeController')->calcularData($b->vencimento) }} - Dias</td>
 
                                 {{-- <td>{{ call_user_func([$HomeController, 'calcularData'], $b->vencimento) }}</td> --}}

@@ -40,6 +40,14 @@ class OutGoingController extends Controller
         $categoriesWithOutgoings = Outgoing::with('Categoryes')->get();
 
         //    CALCULAR SOMENTES OS QUE NAO FORAM PAGOS
+        $naoPagosAll = Outgoing::where('paga', 0)
+        ->where('mesAno', isset($this->$data)? $this->$data : date('Y-m'))->get();
+        $naoPago = 0;
+        foreach($naoPagosAll as $calc){
+            $naoPago += $calc->value;
+        }
+
+        //    CALCULAR SOMENTES OS QUE NAO FORAM PAGOS
         $categoryoutgoingsAll = Outgoing::where('paga', 1)
         ->where('mesAno', isset($this->$data)? $this->$data : date('Y-m'))->get();
         $despesaTotal = 0;
@@ -65,7 +73,6 @@ class OutGoingController extends Controller
         $formattedDate = $this->$data? Carbon::createFromFormat('Y-m', $this->$data)->format('F Y'): date('Y-m');
 
         $totalMensal = $totalReceitas - $despesaTotal;
-        // dd('teste', $despesaTotal);
 
         $categoryes = Categoryes::all();
         return view('outgoings.outgoings', [
@@ -75,6 +82,7 @@ class OutGoingController extends Controller
             'dataConsulta' => $formattedDate,
             'receita' => $totalReceitas,
             'totalMensal' => $totalMensal,
+            'naoPago' => $naoPago,
         ]);
     }
 
