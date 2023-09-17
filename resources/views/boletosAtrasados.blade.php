@@ -66,9 +66,23 @@
                     <tbody>
                         @php $i = 0;@endphp
                         @foreach ($boletoAtrasados as $b )
-                        @php $i ++;@endphp
-                            <tr @if($b->paga === 1) class="btn-success"@endif>
-                                <td>{{ $i  }}</td>
+                        @php
+                             $i ++;
+                            //  dd('teste');
+                             $dias = app('App\Http\Controllers\HomeController')->calcularData($b->vencimento);
+                            if($dias <= 5){
+                                $colorApp = '#c2bf15';
+                            }else if($dias <= 10){
+                                $colorApp = '#c26c15';
+                            }else if($dias <= 15){
+                                $colorApp = '#c23815';
+                            }else if($dias >= 30){
+                                $colorApp = '#c21515';
+                            }
+
+                        @endphp
+                        <tr style="background-color:{{ $colorApp}}" @if($b->paga === 1)class="btn-success"@endif>
+                            <td>{{ $i  }}</td>
                                 <td>{{ $b->description }}</td>
                                 <td>{{ $b->value }}</td>
                                 <td>{{ app('App\Http\Controllers\HomeController')->trataData($b->vencimento)}}</td>

@@ -118,7 +118,7 @@
     <div class="icon">
     <i class="ion ion-pie-graph"></i>
     </div>
-    <a href="/boletosAtrasados" class="small-box-footer">Visualizar <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="public/boletosAtrasados" class="small-box-footer">Visualizar <i class="fas fa-arrow-circle-right"></i></a>
     </div>
     </div>
 

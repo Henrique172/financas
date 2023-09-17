@@ -33,7 +33,7 @@ class HomeController extends Controller
 
         $boletoAtrasados = Outgoing::where('vencimento', '<', date('Y-m-d H:i:s'))
                                     ->where('paga', 0)->get();
-        // dd($boletoAtrasados->vencimento);
+        // dd($boletoAtrasados);
 
         return view('boletosAtrasados', ['boletoAtrasados' => $boletoAtrasados]);
     }
