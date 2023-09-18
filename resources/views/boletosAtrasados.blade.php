@@ -68,15 +68,16 @@
                         @foreach ($boletoAtrasados as $b )
                         @php
                              $i ++;
+                             $colorApp = '';
                             //  dd('teste');
                              $dias = app('App\Http\Controllers\HomeController')->calcularData($b->vencimento);
-                            if($dias <= 5){
+                            if($dias >= 1 && $dias <= 5){
                                 $colorApp = '#c2bf15';
-                            }else if($dias <= 10){
+                            }else if($dias >= 6 && $dias <= 10){
                                 $colorApp = '#c26c15';
-                            }else if($dias <= 15){
+                            }else if($dias >= 11 && $dias <= 15){
                                 $colorApp = '#c23815';
-                            }else if($dias >= 30){
+                            }else if($dias >= 20 && $dias <= 30){
                                 $colorApp = '#c21515';
                             }
 
